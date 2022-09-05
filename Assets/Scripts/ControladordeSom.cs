@@ -10,10 +10,17 @@ public class ControladordeSom : MonoBehaviour
     public Slider musicValue;
     public Slider fxValue;
     public Slider masterVol;
+    
 
+    private void Start()
+    {
+        PlayerPrefs.GetFloat("masterVolparameter", masterVol.value);
+    }
     public void MasterVolumChange()
     {
         mixer.SetFloat("masterVolparameter", masterVol.value);
+        PlayerPrefs.SetFloat("masterVolparameter", masterVol.value);
+        PlayerPrefs.Save();
     }
     
     public void MusicVolumChange()
