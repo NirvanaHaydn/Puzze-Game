@@ -15,6 +15,8 @@ public class ControladordeSom : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.GetFloat("masterVolparameter", masterVol.value);
+        PlayerPrefs.GetFloat("musicVolparameter", musicValue.value);
+        PlayerPrefs.GetFloat("fxVolparameter", fxValue.value);
     }
     public void MasterVolumChange()
     {
@@ -26,9 +28,11 @@ public class ControladordeSom : MonoBehaviour
     public void MusicVolumChange()
     {
         mixer.SetFloat("musicVolparameter", musicValue.value);
+        PlayerPrefs.SetFloat("musicVolparameter", musicValue.value);
     }
     public void FxVolumChange()
     {
         mixer.SetFloat("fxVolparameter", fxValue.value);
+        PlayerPrefs.SetFloat("fxVolparameter", fxValue.value);
     }
 }
